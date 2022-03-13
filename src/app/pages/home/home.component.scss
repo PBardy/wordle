@@ -1,0 +1,11 @@
+.section {
+  padding: 1rem 0;
+}
+
+.section:not(:last-of-type) {
+  border-bottom: 1px solid var(--grey1);
+}
+
+.form {
+  margin-top: 2rem;
+}

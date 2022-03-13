@@ -1,0 +1,18 @@
+<div class="dialog">
+  <div class="dialog-header">
+    <h4>{{ data.won ? "Game Won" : "Game Over" }}</h4>
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="dialog-content">
+    <p>
+      The word was <b>{{ data.word }}</b>
+    </p>
+  </div>
+  <div class="dialog-actions">
+    <button class="btn btn-primary" mat-button (click)="replay()">
+      <span>Replay</span>
+    </button>
+  </div>
+</div>

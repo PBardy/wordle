@@ -1,0 +1,11 @@
+<div class="grid-container">
+  <div app-grid [width]="width" [height]="height">
+    <ng-container *ngFor="let row of grid">
+      <ng-container *ngFor="let col of row">
+        <div class="grid-cell-container">
+          <app-guess [guess]="col"></app-guess>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

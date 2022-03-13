@@ -1,0 +1,19 @@
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row class="toolbar-row">
+    <div class="toolbar-group">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div class="toolbar-group">
+      <h3>Wordle</h3>
+    </div>
+    <div class="toolbar-group">
+      <button mat-icon-button (click)="settings.toggleTheme()">
+        <mat-icon>
+          {{ settings.isDarkMode ? "light_mode" : "dark_mode" }}
+        </mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,71 @@
+// Material theme
+@use "~@angular/material" as mat;
+
+@import "~@angular/material/theming";
+
+@include mat.core();
+
+$angular-primary: mat.define-palette(mat.$teal-palette, 500, 100, 900);
+$angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$angular-warn: mat.define-palette(mat.$red-palette);
+
+$angular-default-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+
+$angular-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+
+.dark-mode {
+  @include mat.all-component-colors($angular-dark-theme);
+}
+
+.light-mode {
+  @include mat.all-component-themes($angular-default-theme);
+}
+
+// Other theming
+
+:root {
+  --title-font: "Oswald", Helvetica, arial, sans-serif;
+  --subtitle-font: "Roboto", Helvetica, arial, sans-serif;
+  --paragraph-font: "Roboto", arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grey1: #4f4f4f;
+    --grey2: #a7a7a7;
+    --grey3: #f8f8f8;
+    --white1: #383838;
+    --white2: #4f4f4f;
+    --green1: #19a539;
+    --yellow1: #d6bf50;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --grey1: #e3e3e3;
+    --grey2: #a8a8a8;
+    --grey3: #4f4e4e;
+    --white1: #fdfdfd;
+    --white2: #f6f6f6;
+    --green1: #18a538;
+    --yellow1: #d6bf50;
+  }
+}

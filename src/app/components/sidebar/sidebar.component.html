@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <div class="sidebar-header"></div>
+  <div class="sidebar-content">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of links">
+        <a matLine [routerLink]="link.href">{{ link.text }}</a>
+        <mat-icon mat-list-icon>{{ link.icon }}</mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+  <div class="sidebar-footer"></div>
+</div>

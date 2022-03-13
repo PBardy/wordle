@@ -1,0 +1,28 @@
+.keyboard-key {
+  font-family: var(--title-font);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  padding: 0.85rem 0.5rem;
+  background-color: var(--grey1);
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  min-width: 1rem;
+
+  &.action {
+    color: var(--white1);
+    background-color: var(--grey3);
+  }
+
+  &.guessed {
+    background-color: var(--grey2);
+  }
+
+  &.letter {
+    background-color: var(--yellow1);
+  }
+
+  &.place {
+    background-color: var(--green1);
+  }
+}

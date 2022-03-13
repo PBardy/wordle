@@ -1,0 +1,69 @@
+<main class="main">
+  <div class="content-wrapper">
+    <section class="section">
+      <h4>Welcome</h4>
+      <p>
+        Yet another copy of the classic language game wordle. This adds lots of
+        different modes and subject specific vocabulary.
+      </p>
+    </section>
+    <section class="section">
+      <h4>Game Builder</h4>
+      <p>
+        Choose from a vareity of different modes, word sizes and other
+        constraints.
+      </p>
+      <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Mode Selection -->
+        <div class="form-group">
+          <div class="form-control">
+            <mat-form-field appearance="outline">
+              <mat-label>Mode</mat-label>
+              <mat-select formControlName="mode">
+                <ng-container *ngFor="let mode of modes">
+                  <mat-option [value]="mode.value">
+                    <span>{{ mode.label }}</span>
+                  </mat-option>
+                </ng-container>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- Size Selection -->
+        <div class="form-group">
+          <div class="form-control">
+            <mat-form-field appearance="outline">
+              <mat-label>Size</mat-label>
+              <mat-select formControlName="size">
+                <ng-container *ngFor="let size of sizes">
+                  <mat-option [value]="size.value">
+                    <span>{{ size.label }}</span>
+                  </mat-option>
+                </ng-container>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- Difficulty Selection -->
+        <div class="form-group">
+          <div class="form-control">
+            <mat-form-field appearance="outline">
+              <mat-label>Difficulty</mat-label>
+              <mat-select formControlName="difficulty">
+                <ng-container *ngFor="let difficulty of difficulties">
+                  <mat-option [value]="difficulty.value">
+                    <span>{{ difficulty.label }}</span>
+                  </mat-option>
+                </ng-container>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- Submit -->
+        <button class="btn btn-primary" mat-button type="submit">
+          <span>Let's Play</span>
+        </button>
+      </form>
+    </section>
+  </div>
+</main>

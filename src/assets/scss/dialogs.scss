@@ -1,0 +1,39 @@
+.dialog {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 1rem 0;
+  width: calc(min(80vw, 80vh) - 40px);
+  height: calc(min(80vw, 80vh) - 40px);
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+  justify-content: space-between;
+}
+
+.dialog-header h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-family: var(--title-font);
+}
+
+.dialog-content {
+  display: grid;
+  place-items: center;
+}
+
+.dialog-content p {
+  font-size: 1.15rem;
+}
+
+.dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0 1rem;
+}
