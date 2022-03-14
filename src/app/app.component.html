@@ -1,9 +1,12 @@
-<mat-drawer-container class="drawer-container dark-mode mat-app-background">
+<mat-drawer-container
+  class="drawer-container mat-app-background"
+  [ngClass]="themeClass"
+>
   <mat-drawer class="drawer" mode="over" #drawer>
-    <app-sidebar></app-sidebar>
+    <app-sidebar [drawer]="drawer"></app-sidebar>
   </mat-drawer>
   <mat-drawer-content class="drawer-content">
-    <app-toolbar [drawer]="drawer"></app-toolbar>
+    <app-toolbar class="toolbar-container" [drawer]="drawer"></app-toolbar>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

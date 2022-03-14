@@ -1,10 +1,16 @@
 <div class="sidebar">
-  <div class="sidebar-header"></div>
+  <div class="sidebar-header">
+    <h3>Wordle</h3>
+  </div>
   <div class="sidebar-content">
     <mat-nav-list>
-      <mat-list-item *ngFor="let link of links">
-        <a matLine [routerLink]="link.href">{{ link.text }}</a>
-        <mat-icon mat-list-icon>{{ link.icon }}</mat-icon>
+      <mat-list-item (click)="navigateTo('home')">
+        <a matLine>Home</a>
+        <mat-icon mat-list-icon>home</mat-icon>
+      </mat-list-item>
+      <mat-list-item (click)="navigateTo('dictionaries')">
+        <a matLine routerLink="/dictionaries">Dictionaries</a>
+        <mat-icon mat-list-icon>book</mat-icon>
       </mat-list-item>
     </mat-nav-list>
   </div>

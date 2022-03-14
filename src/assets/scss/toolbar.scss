@@ -1,5 +1,10 @@
 @import "variables";
 
+.toolbar-container {
+  position: sticky;
+  top: 0;
+}
+
 .toolbar {
   color: var(--grey3);
   background-color: var(--white2);

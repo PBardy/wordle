@@ -69,3 +69,23 @@ $angular-dark-theme: mat.define-dark-theme(
     --yellow1: #d6bf50;
   }
 }
+
+.dark-mode {
+  --grey1: #4f4f4f;
+  --grey2: #a7a7a7;
+  --grey3: #f8f8f8;
+  --white1: #383838;
+  --white2: #4f4f4f;
+  --green1: #19a539;
+  --yellow1: #d6bf50;
+}
+
+.light-mode {
+  --grey1: #e3e3e3;
+  --grey2: #a8a8a8;
+  --grey3: #4f4e4e;
+  --white1: #ededed;
+  --white2: #d6d6d6;
+  --green1: #18a538;
+  --yellow1: #d6bf50;
+}

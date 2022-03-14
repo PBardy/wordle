@@ -1,0 +1,16 @@
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 1rem;
+}
+
+ul {
+  padding: 0;
+  padding-left: 1rem;
+}
+
+ul li {
+  list-style: square;
+  padding: 0.25rem 0;
+}

@@ -1,0 +1,23 @@
+<main class="main">
+  <div class="content-wrapper">
+    <ng-container *ngFor="let d of dictionaries">
+      <section class="section">
+        <div class="section-title" (click)="expanded.toggle(d[0])">
+          <h4>{{ d[0] | titlecase }}</h4>
+          <button mat-icon-button>
+            <mat-icon>
+              {{ expanded.isSelected(d[0]) ? "expand_less" : "expand_more" }}
+            </mat-icon>
+          </button>
+        </div>
+        <div class="section-content" *ngIf="expanded.isSelected(d[0])">
+          <ul>
+            <ng-container *ngFor="let word of d[1]">
+              <li>{{ word }}</li>
+            </ng-container>
+          </ul>
+        </div>
+      </section>
+    </ng-container>
+  </div>
+</main>

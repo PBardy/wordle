@@ -69,6 +69,7 @@ import { GridDirective } from './directives/grid.directive';
 import { GuessComponent } from './pages/wordle/grid/guess/guess.component';
 import { KeyComponent } from './pages/wordle/keyboard/key/key.component';
 import { GameOverDialogComponent } from './pages/wordle/dialogs/game-over-dialog/game-over-dialog.component';
+import { DictionariesComponent } from './pages/dictionaries/dictionaries.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { GameOverDialogComponent } from './pages/wordle/dialogs/game-over-dialog
     GuessComponent,
     KeyComponent,
     GameOverDialogComponent,
+    DictionariesComponent,
   ],
   imports: [
     BrowserModule,

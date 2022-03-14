@@ -5,9 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Difficulty, Mode } from 'src/app/definitions';
 import { Guess } from 'src/app/models/guess';
-import { toLowerCase } from 'src/app/util/string';
 import { MatDialog } from '@angular/material/dialog';
 import { GameOverDialogComponent } from './dialogs/game-over-dialog/game-over-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-wordle',
@@ -37,7 +37,11 @@ export class WordleComponent implements OnInit, OnDestroy {
     LEAD_DEV: -1,
   };
 
-  constructor(private route: ActivatedRoute, private dialog: MatDialog) {}
+  constructor(
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar
+  ) {}
 
   @HostListener('document:keydown', ['$event'])
   public onKeypress(event: KeyboardEvent): void {
@@ -117,8 +121,7 @@ export class WordleComponent implements OnInit, OnDestroy {
     // Normal Mode
     if (this.difficulty === 'NORMAL') {
       this.dictionary = this.dictionary.map((word) => word.toLowerCase());
-      this.dictionary = this.dictionary.filter((w) => w.length <= this.size);
-      this.dictionary = this.dictionary.map((w) => w.padEnd(this.size, '-'));
+      this.dictionary = this.dictionary.filter((w) => w.length === this.size);
     }
 
     // Hard Mode
@@ -144,17 +147,33 @@ export class WordleComponent implements OnInit, OnDestroy {
     }
   }
 
+  private resetBuffer(): void {
+    for (let col = 0; col < this.size; col++) {
+      this.grid[this.row][col].value = '';
+    }
+
+    this.col = 0;
+  }
+
   private chooseWord(): void {
     const randInt = Math.floor(Math.random() * this.dictionary.length);
     this.word = this.dictionary[randInt];
   }
 
   private makeGuess(): void {
-    if (this.buffer.length !== this.size) return;
+    const buffer = this.buffer;
 
-    for (let i = 0; i < this.buffer.length; i++) {
+    if (buffer.length !== this.size) return;
+
+    if (!this.dictionary.includes(buffer)) {
+      this.resetBuffer();
+      this.snackbar.open(`${buffer} is not a valid term.`, 'Dismiss');
+      return;
+    }
+
+    for (let i = 0; i < buffer.length; i++) {
       const a = this.word[i];
-      const b = this.buffer[i];
+      const b = buffer[i];
       const c = this.grid[this.row][i];
       c.guess(a, b, this.word);
 
@@ -164,7 +183,7 @@ export class WordleComponent implements OnInit, OnDestroy {
       }
     }
 
-    if (this.buffer === this.word) {
+    if (buffer === this.word) {
       return this.onGameOver(true);
     }
 
